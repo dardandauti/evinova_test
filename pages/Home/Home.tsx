@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ISearchResult, ResultsList } from './ResultsList';
@@ -27,6 +27,7 @@ export const Home = ({ navigation }: { navigation: THomeNavigation }) => {
         setSearchResults({
           numberOfResults: res.data.numFound,
           results: res.data.docs.map((item: any) => ({
+            bookKey: item.key,
             bookAuthor: item.author_name,
             bookTitle: item.title,
             avrgRating: item.ratings_average,
@@ -35,7 +36,8 @@ export const Home = ({ navigation }: { navigation: THomeNavigation }) => {
           })),
         }),
       )
-      .finally(() => setIsLoading(false));
+      .finally(() => setIsLoading(false))
+      .catch(e => Alert.alert(e));
   }
 
   return (

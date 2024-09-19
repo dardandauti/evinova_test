@@ -3,12 +3,14 @@ import React from 'react';
 import { THomeNavigation } from './Home';
 
 export interface ISearchResult {
+  bookKey: string; //           key
   bookTitle: string; //         title
   bookAuthor: string; //        author_name
   avrgRating: number; //        ratings_average: 4.521739,
   nrOfRatings: number; //       ratings_count: 23
   publishedYear: number[]; //   publish_year
 }
+
 const ResultItem = ({
   searchResult,
   navigation,
@@ -19,7 +21,9 @@ const ResultItem = ({
   return (
     <TouchableOpacity
       style={styles.searchItem}
-      onPress={() => navigation.navigate('Book', { bookID: 'nkjsadflksjf' })}>
+      onPress={() =>
+        navigation.navigate('Book', { bookID: searchResult.bookKey })
+      }>
       <Text>{searchResult.bookTitle}</Text>
       <Text>{searchResult.bookAuthor}</Text>
       {searchResult.publishedYear && (
@@ -28,6 +32,7 @@ const ResultItem = ({
     </TouchableOpacity>
   );
 };
+
 export const ResultsList = ({
   resultsData,
   navigation,

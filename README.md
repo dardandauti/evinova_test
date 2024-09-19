@@ -85,9 +85,11 @@ To learn more about React Native, take a look at the following resources:
 X Set up app (create shell components)
 X implement searchbar
 X implement request for searching for a book
+X Implement handling incoming response
+X Create UI for response list
+X create UI for showing error or slow loading (de-prioritise slow loading)
 
-- Implement handling incoming response
-  X Create UI for response list
-  - create UI for showing error or slow loading (de-prioritise slow loading)
 - Implement request for book-information
   - Create UI for book-details
+
+?? Hur ska jag ta hänsyn till verk alt. upplaga?
