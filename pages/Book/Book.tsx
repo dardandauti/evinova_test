@@ -1,13 +1,13 @@
 import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { TBookRoute } from './types';
+import { IBookDetail, TBookRoute } from './types';
 import axios from 'axios';
 
 export const Book = ({ route }: { route: TBookRoute }) => {
   const { bookID } = route.params;
 
   const [isLoading, setIsLoading] = useState(false);
-  const [bookDetails, setBookDetails] = useState<any>();
+  const [bookDetails, setBookDetails] = useState<IBookDetail>();
 
   useEffect(() => {
     setIsLoading(true);

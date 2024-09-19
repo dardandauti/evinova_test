@@ -5,4 +5,8 @@ type TBook = NativeStackScreenProps<RootStackParamList, 'Book'>;
 
 export type TBookRoute = TBook['route'];
 
-export interface IBookDetail {}
+export interface IBookDetail {
+  title: string;
+  subtitle: string;
+  description: { value: string; type: string };
+}
