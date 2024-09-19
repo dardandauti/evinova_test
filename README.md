@@ -1,3 +1,19 @@
+# TODO:
+
+- ~~Set up app (create shell components)~~
+- ~~implement searchbar~~
+- ~~implement request for searching for a book~~
+- ~~Implement handling incoming response~~
+  - ~~Create UI for response list~~
+  - ~~create UI for showing error or slow loading (de-prioritise slow loading)~~
+- ~~Implement request for book-information~~
+  - ~~Create UI for book-details~~
+
+# RESTRAINTS:
+
+- Style search results component to proper fit long book-titles
+- Style Book-description page (fetch more info from other endpoints)
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
@@ -79,17 +95,3 @@ To learn more about React Native, take a look at the following resources:
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
 
 ###
-
-# TODO:
-
-X Set up app (create shell components)
-X implement searchbar
-X implement request for searching for a book
-X Implement handling incoming response
-X Create UI for response list
-X create UI for showing error or slow loading (de-prioritise slow loading)
-
-- Implement request for book-information
-  - Create UI for book-details
-
-?? Hur ska jag ta hänsyn till verk alt. upplaga?

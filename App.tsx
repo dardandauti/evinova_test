@@ -6,23 +6,14 @@
  */
 
 import { NavigationContainer } from '@react-navigation/native';
-import {
-  createNativeStackNavigator,
-  NativeStackScreenProps,
-} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { Home } from './pages/Home/Home';
 import { Book } from './pages/Book/Book';
 import axios from 'axios';
+import { RootStackParamList } from './pages/types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
-
-export type RootStackParamList = {
-  Home: undefined;
-  Book: { bookID: string };
-};
-export type THome = NativeStackScreenProps<RootStackParamList, 'Home'>;
-export type TBook = NativeStackScreenProps<RootStackParamList, 'Book'>;
 
 function App(): React.JSX.Element {
   axios.defaults.baseURL = 'https://openlibrary.org';
