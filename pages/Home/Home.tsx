@@ -2,8 +2,11 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ISearchResult, ResultsList } from './ResultsList';
+import { THome } from '../../App';
 
-export const Home = () => {
+export type THomeNavigation = THome['navigation'];
+
+export const Home = ({ navigation }: { navigation: THomeNavigation }) => {
   const [searchResults, setSearchResults] = useState<{
     numberOfResults: number;
     results: ISearchResult[];
@@ -44,7 +47,7 @@ export const Home = () => {
         onEndEditing={e => getSearchedBooks(e.nativeEvent.text)}
       />
       <Text>{isLoading.toString()}</Text>
-      <ResultsList resultsData={searchResults} />
+      <ResultsList resultsData={searchResults} navigation={navigation} />
     </View>
   );
 };
