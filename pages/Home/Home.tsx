@@ -1,11 +1,50 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { ISearchResult, ResultsList } from './ResultsList';
 
 export const Home = () => {
+  const [searchResults, setSearchResults] = useState<{
+    numberOfResults: number;
+    results: ISearchResult[];
+  }>({
+    numberOfResults: 0,
+    results: [],
+  });
+  const [isLoading, setIsLoading] = useState(false);
+
+  function getSearchedBooks(searchParams: string) {
+    setIsLoading(true);
+    axios('search.json', {
+      params: {
+        q: searchParams,
+      },
+    })
+      .then(res =>
+        setSearchResults({
+          numberOfResults: res.data.numFound,
+          results: res.data.docs.map((item: any) => ({
+            bookAuthor: item.author_name,
+            bookTitle: item.title,
+            avrgRating: item.ratings_average,
+            nrOfRatings: item.ratings_count,
+            publishedYear: item.publish_year,
+          })),
+        }),
+      )
+      .finally(() => setIsLoading(false));
+  }
+
   return (
     <View style={styles.root}>
       <Text>Search for books!</Text>
-      <TextInput style={styles.input} placeholder="Type here..." />
+      <TextInput
+        style={styles.input}
+        placeholder="Type here..."
+        onEndEditing={e => getSearchedBooks(e.nativeEvent.text)}
+      />
+      <Text>{isLoading.toString()}</Text>
+      <ResultsList resultsData={searchResults} />
     </View>
   );
 };
