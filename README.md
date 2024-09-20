@@ -17,6 +17,8 @@
 - Better typing for incoming requests (i.e. map over request to create custom type or create model of type from API-structure).
 - Fix UI-bugs (rating on results-list).
 
+Some of these points have been fixed in the branch [`/post-time-updates`](https://github.com/dardandauti/evinova_test/tree/post-time-updates)
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
