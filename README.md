@@ -19,6 +19,8 @@
 
 Some of these points have been fixed in the branch [`/post-time-updates`](https://github.com/dardandauti/evinova_test/tree/post-time-updates)
 
+# Default README-template below:
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
