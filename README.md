@@ -9,10 +9,13 @@
 - ~~Implement request for book-information~~
   - ~~Create UI for book-details~~
 
-# RESTRAINTS:
+# IF more time was given:
 
 - Style search results component to proper fit long book-titles
 - Style Book-description page (fetch more info from other endpoints)
+- Break out more components
+- Better typing for incoming requests (i.e. map over request to create custom type or create model of type from API-structure).
+- Fix UI-bugs (rating on results-list).
 
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
