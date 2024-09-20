@@ -2,7 +2,11 @@ import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ResultsList } from './Components/ResultsList';
-import { THomeNavigation, ISearchResult } from './types';
+import {
+  THomeNavigation,
+  ISearchResult,
+  IPickedRequestProperties,
+} from './types';
 
 export const Home = ({ navigation }: { navigation: THomeNavigation }) => {
   const [searchResults, setSearchResults] = useState<{
@@ -25,7 +29,7 @@ export const Home = ({ navigation }: { navigation: THomeNavigation }) => {
       .then(res =>
         setSearchResults({
           numberOfResults: res.data.numFound,
-          results: res.data.docs.map((item: any) => ({
+          results: res.data.docs.map((item: IPickedRequestProperties) => ({
             bookKey: item.key,
             bookAuthor: item.author_name,
             bookTitle: item.title,

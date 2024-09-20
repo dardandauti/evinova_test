@@ -4,7 +4,9 @@ import { IBookDetail, TBookRoute } from './types';
 import axios from 'axios';
 
 export const Book = ({ route }: { route: TBookRoute }) => {
-  const { bookID } = route.params;
+  const { bookID, bookAuthor, bookRating } = route.params;
+  const avrgRating = bookRating.avrgRating;
+  const nrOfRatings = bookRating.nrOfRatings;
 
   const [isLoading, setIsLoading] = useState(false);
   const [bookDetails, setBookDetails] = useState<IBookDetail>();
@@ -24,8 +26,20 @@ export const Book = ({ route }: { route: TBookRoute }) => {
       ) : (
         bookDetails && (
           <View style={styles.bookInfo}>
-            <Text style={styles.title}>{bookDetails.title}</Text>
-            <Text style={styles.subtitle}>{bookDetails.subtitle}</Text>
+            <View style={styles.headingLayout}>
+              <View>
+                <Text style={styles.title}>{bookDetails.title}</Text>
+                <Text style={styles.subtitle}>{bookDetails.subtitle}</Text>
+                <Text style={styles.subtitle}>{bookAuthor}</Text>
+              </View>
+              <View>
+                <Text>
+                  {avrgRating?.toFixed(2)}
+                  {nrOfRatings && ` (${nrOfRatings})`}
+                </Text>
+              </View>
+            </View>
+
             <Text style={styles.description}>
               {bookDetails.description?.value ??
                 'There is no description available...'}
@@ -41,6 +55,10 @@ const styles = StyleSheet.create({
   root: { padding: 32 },
   bookInfo: {
     gap: 16,
+  },
+  headingLayout: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 18,

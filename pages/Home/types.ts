@@ -12,3 +12,12 @@ export interface ISearchResult {
   nrOfRatings: number; //       ratings_count: 23
   publishedYear: number[]; //   publish_year
 }
+
+export interface IPickedRequestProperties {
+  key: string;
+  author_name: string;
+  title: string;
+  ratings_average: number;
+  ratings_count: number;
+  publish_year: number[];
+}

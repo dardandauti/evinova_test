@@ -20,7 +20,14 @@ const ResultItem = ({
       key={searchResult.bookKey}
       style={styles.searchItem}
       onPress={() =>
-        navigation.navigate('Book', { bookID: searchResult.bookKey })
+        navigation.navigate('Book', {
+          bookID: searchResult.bookKey,
+          bookAuthor: searchResult.bookAuthor,
+          bookRating: {
+            nrOfRatings: searchResult.nrOfRatings,
+            avrgRating: searchResult.avrgRating,
+          },
+        })
       }>
       <View style={styles.gridItem}>
         <Text style={styles.title}>{searchResult.bookTitle}</Text>
